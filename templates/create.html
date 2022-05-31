@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>{% block title %}xpire {% endblock %}</h1>
+<a href="/" class="linkButton">go to list</a>
+<form method="post">
+        <label for="grocery">Grocery Item</label>
+        <br>
+        <input type="text" name="grocery"
+               placeholder="cookies, milk..."
+               value="{{ request.form['grocery'] }}"></input>
+        <br><br>
+        <label for="expiry">Expiry Date</label>
+        <br>
+<input type="date" name="expiry" value="{{ request.form['expiry'] }} " min="2022-05-28" max="2026-12-31">
+      <br>
+        <button type="submit" name = "submit" class="submit">submit</button>
+    </form>
+{% endblock %}

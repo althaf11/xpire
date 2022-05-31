@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h1>{% block title %}xpire {% endblock %}</h1>
+<a href="/" class="linkButton">go to list</a>
+
+<body>
+<select id="DropDownList">
+</select>
+
+<script type="text/javascript" language="javascript">
+   var x = myproducts();
+   var splitValues = x.split(",");
+   for (var i = 0; i < splitValues.length; i++) {
+      var opt = document.createElement("option");
+      // Add an Option object to Drop Down/List Box
+      document.getElementById("DropDownList").options.add(opt);
+      // Assign text and value to Option object
+      opt.text = splitValues[i];
+      opt.value = splitValues[i];
+   }
+</script>
+
+ <p>{{ myproducts() }}</p>
+
+
+  
+</body> 
+{% endblock %}
