@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import date, timedelta, datetime
+from operator import itemgetter
 
 # Create a flask app
 app = Flask(
@@ -40,7 +41,7 @@ def remove():
     expiry = request.form['expiry']
     items.remove({'grocery': grocery, 'expiry': expiry}) 
     return redirect(url_for('index'))
-  return render_template('create.html')  
+  return render_template('create.html') 
   
 def expirybutton():
     today = date.today()
@@ -63,7 +64,8 @@ expirybutton()
 def expiryPage():
     return render_template('expiry.html', myfunction=expirybutton)
 
-def productList():
+@app.route('/remove')
+def removePage():
     product = ()
     listOfProds = []
     for item in items:
@@ -71,13 +73,19 @@ def productList():
           if i == 'grocery':
               product = item[i]
               listOfProds.append(product)
-    newListProds=(','.join(listOfProds))  
-    return newListProds
-productList()
+    return render_template('remove.html', myproducts=listOfProds)
 
-@app.route('/remove', methods=['GET'])
-def removePade():
-    return render_template('remove.html', myproducts=productList)
+
+@app.route('/remove', methods=['POST'])
+def removeItem():
+  if request.method == 'POST':
+    selection = request.form.get('dropSelection')
+    for item in items: 
+      if item['grocery'] == selection:
+        index = items.index(item) 
+        items.pop(index)
+  return redirect(url_for('index'))
+
   
 if __name__ == '__main__':
   # Run the Flask app

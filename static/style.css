@@ -31,7 +31,14 @@ h3 {
   margin:0px;
 }
 
-form, input
+h4 {
+  color: #f1eae0;
+  background: #3f7d93;
+  font-size: 20px;
+
+}
+
+form, input, .dropMenu
 {
   margin: auto;
   text-align: center;
@@ -149,4 +156,8 @@ form, input
 .onlyItems:hover {
   background: #f1eae0;
   color: #3f7d93;
+}
+
+.defaultDrop {
+  color: #757575;
 }
