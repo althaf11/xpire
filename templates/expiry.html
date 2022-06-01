@@ -3,12 +3,12 @@
 
 {% block content %}
 <h1>{% block title %}xpire {% endblock %}</h1>
-<a href="/" class="linkButton">go to list</a>
+<div class="buttonCon">
+  <a href="/" class="linkButton">go back to list</a>
+  </div>
 <body>
   <div class="center">
     <p><span class="overall">Your grocery items that will be expiring soon are </span> <span class="onlyItems">{{ myfunction() }}</span><span class="overall">.</span></p>
-
-
-    
+  </div>
 </body> 
 {% endblock %}

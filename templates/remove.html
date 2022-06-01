@@ -3,14 +3,15 @@
 
 {% block content %}
 <h1>{% block title %}xpire {% endblock %}</h1>
-<a href="/" class="linkButton">go to list</a>
-
+<div class="buttonCon">
+<a href="/" class="linkButton">go back to list</a>
+</div>
 <body>
 
 <body>
 	<div class="col-md-4">
    <form method="post">
-	<h4>Which product would you like to remove?</h4>
+	<h4>Which grocery item would you like to remove?</h4>
 	<select class="dropMenu" name="dropSelection">
       <option class="defaultDrop" value="" selected disabled hidden>select here</option>
       {% for prod in myproducts %}
