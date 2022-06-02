@@ -13,11 +13,18 @@ app.config['SECRET_KEY'] = 'b9fb4a2e41544f4dfe25a9c1'
 
 
 items = []
+empty = []
+daysPrior = 2
 
 # Index page (now using the index.html file)
 @app.route('/')
 def index():
   return render_template('index.html', items=items)
+
+@app.route('/settings')
+def settings():
+  return render_template('settings.html')  
+
 
 @app.route('/create', methods=('GET', 'POST'))
 def create():
@@ -45,7 +52,7 @@ def remove():
   
 def expirybutton():
     today = date.today()
-    days = timedelta(2)
+    days = timedelta(daysPrior)
     new_date = today + days
     product = ()
     productList = []
@@ -56,8 +63,13 @@ def expirybutton():
           if i == 'expiry':
               if (datetime.strptime(item[i], '%Y-%m-%d').date()) <= new_date:
                 productList.append(product)
-    newProductList=(', '.join(productList))  
-    return newProductList  
+    if not productList:
+    #empty list is false
+      return "You have no items that are within " + str(daysPrior) + " days of their expiry date."
+
+    else:
+      newProductList=(', '.join(productList))
+      return "Your grocery items that are expiring within " + str(daysPrior) + " days: " + newProductList 
 expirybutton()
 
 @app.route('/expiry')

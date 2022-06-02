@@ -147,17 +147,7 @@ form, input, .dropMenu
 .overall {
   color: #f1eae0;
   font-weight:300px;
-}
-
-.onlyItems {
-    color: #f1eae0;
-    font-weight:300px;
-}
-
-
-.onlyItems:hover {
-  background: #f1eae0;
-  color: #3f7d93;
+  text-align: center;
 }
 
 .defaultDrop {
@@ -169,3 +159,16 @@ form, input, .dropMenu
   margin-top: 2%;
   margin-bottom: 2%;
 }
+
+.sendbutton {
+ color: #443544;
+ background-color: #f1eae0;
+font-size: 48px;
+border: none;
+padding: 10px;
+}
+
+.sendbutton:hover {
+  transition-duration: 0.5s;
+  color: #716071;
+ }

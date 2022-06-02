@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
+<script src="https://kit.fontawesome.com/6f662430f5.js" crossorigin="anonymous"></script>
 
+{% extends 'base.html' %}
 
 {% block content %}
 <h1>{% block title %}xpire {% endblock %}</h1>
@@ -8,7 +9,12 @@
   </div>
 <body>
   <div class="center">
-    <p><span class="overall">Your grocery items that will be expiring soon are </span> <span class="onlyItems">{{ myfunction() }}</span><span class="overall">.</span></p>
+    <p class="overall">{{ myfunction() }}</p>
   </div>
+
+<form method="post">
+  <button type="submit" name = "sendMessage" class="sendbutton"><i class='fas fa-sms'></i></button>
+</form>
+
 </body> 
 {% endblock %}
