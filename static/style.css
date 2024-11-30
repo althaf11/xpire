@@ -49,7 +49,7 @@ form, input, .dropMenu
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-  text-color: #443544;
+  color: #443544;
   border: none;
   
 }
@@ -116,7 +116,7 @@ form, input, .dropMenu
   border-right: 1px solid #443544;
   border-bottom: 1px solid #443544;
   border-left: 1px solid #f1eae0;
-  margin-below: 1%;
+  margin-bottom: 1%;
   border-radius: 4px;
   flex: 1 1 0px;
   text-align: center;

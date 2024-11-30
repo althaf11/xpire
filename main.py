@@ -21,9 +21,7 @@ daysPrior = 2
 def index():
   return render_template('index.html', items=items)
 
-@app.route('/settings')
-def settings():
-  return render_template('settings.html')  
+ 
 
 
 @app.route('/create', methods=('GET', 'POST'))
